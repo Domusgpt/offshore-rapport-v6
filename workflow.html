@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Email Content Workflow - Offshore Rapport v6</title>
+  <link rel="stylesheet" href="css/content-styles.css">
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+      line-height: 1.6;
+      color: #333;
+      background-color: #f5f9fc;
+      margin: 0;
+      padding: 20px;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      background-color: white;
+      padding: 40px;
+      border-radius: 8px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    h1 {
+      color: #0e4f6e;
+      margin-top: 0;
+      padding-bottom: 15px;
+      border-bottom: 2px solid #eef5f9;
+    }
+
+    h2 {
+      color: #0e4f6e;
+      margin-top: 30px;
+      margin-bottom: 15px;
+    }
+
+    h3 {
+      color: #2a8dbc;
+      margin-top: 25px;
+      margin-bottom: 10px;
+    }
+
+    code {
+      background-color: #f3f5f7;
+      padding: 2px 5px;
+      border-radius: 3px;
+      font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+      font-size: 0.9em;
+    }
+
+    pre {
+      background-color: #f3f5f7;
+      padding: 15px;
+      border-radius: 5px;
+      overflow: auto;
+      line-height: 1.4;
+    }
+
+    pre code {
+      background: none;
+      padding: 0;
+    }
+
+    a {
+      color: #2a8dbc;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    ul, ol {
+      padding-left: 25px;
+    }
+
+    li {
+      margin-bottom: 8px;
+    }
+
+    blockquote {
+      margin: 0;
+      padding-left: 20px;
+      border-left: 4px solid #d1e3f0;
+      color: #4a5568;
+    }
+
+    .navigation {
+      margin-top: 40px;
+      text-align: center;
+    }
+
+    .btn {
+      display: inline-block;
+      background-color: #0e4f6e;
+      color: white;
+      padding: 12px 24px;
+      border-radius: 4px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: background-color 0.3s;
+    }
+
+    .btn:hover {
+      background-color: #0c3f58;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Offshore Rapport v6 Email Content Workflow</h1>
+    
+    <p>This document explains how to use the email-based content workflow for the Offshore Rapport v6 system. This workflow allows you to generate high-quality content using ChatGPT and import it into the system.</p>
+    
+    <h2>Overview</h2>
+    
+    <p>The workflow consists of these steps:</p>
+    
+    <ol>
+      <li>Generate content using ChatGPT with specific instructions</li>
+      <li>Save the generated content to a file</li>
+      <li>Import the content into the Offshore Rapport system</li>
+      <li>Publish the content (optional)</li>
+    </ol>
+    
+    <h2>Step 1: Generate Content with ChatGPT</h2>
+    
+    <ol>
+      <li>Access the ChatGPT system instructions from:
+        <pre><code>/server/data/instructions/chatgpt-content-prompt.md</code></pre>
+      </li>
+      <li>Copy the entire content of this file and use it as a system prompt in ChatGPT.</li>
+      <li>Ask ChatGPT to generate either:
+        <ul>
+          <li>Fisheries content</li>
+          <li>Offshore economics content</li>
+        </ul>
+      </li>
+      <li>Example user prompts:
+        <pre><code>Generate a comprehensive fisheries industry report focusing on sustainable aquaculture practices in the North Atlantic region.</code></pre>
+        <pre><code>Create an offshore economic analysis of wind energy investment trends in Europe for Q2 2025.</code></pre>
+      </li>
+      <li>Copy the generated content and save it to a text file with a <code>.md</code> extension.</li>
+    </ol>
+    
+    <h2>Step 2: Import the Content</h2>
+    
+    <p>Use the import script to process the content file:</p>
+    
+    <pre><code># Navigate to the project directory
+cd /path/to/offshore-rapport-v6/server
+
+# Process the content file
+node scripts/import-email-content.js --process-file /path/to/content-file.md</code></pre>
+    
+    <p>The script will:</p>
+    <ul>
+      <li>Parse the content</li>
+      <li>Identify the content type (fisheries or offshore economics)</li>
+      <li>Extract the title and metadata</li>
+      <li>Save the content to the drafts folder</li>
+      <li>Generate appropriate metadata</li>
+    </ul>
+    
+    <h2>Step 3: Publish the Content (Optional)</h2>
+    
+    <p>After importing, you can publish the content using the admin interface or the API:</p>
+    
+    <pre><code># Using the API
+curl -X POST http://localhost:3000/api/admin/content/[CONTENT_ID]/publish</code></pre>
+    
+    <h2>Advanced: Email Integration</h2>
+    
+    <p>For a full email workflow:</p>
+    
+    <ol>
+      <li>Install the nodemailer package:
+        <pre><code>npm install nodemailer</code></pre>
+      </li>
+      <li>Configure your email settings in the script:
+        <pre><code>// In /server/scripts/import-email-content.js
+const config = {
+  email: {
+    user: 'your-email@example.com',
+    password: 'your-password',
+    host: 'your-smtp-server.com',
+    port: 587,
+    tls: true
+  },
+  // ... other config
+};</code></pre>
+      </li>
+      <li>Send the instructions to your email:
+        <pre><code>node scripts/import-email-content.js --send-instructions your-email@example.com</code></pre>
+      </li>
+      <li>Follow the instructions in the email to generate content with ChatGPT.</li>
+      <li>Reply to the email with the generated content.</li>
+      <li>Set up an IMAP connection to automatically process incoming emails (future enhancement).</li>
+    </ol>
+    
+    <h2>Notes on Content Quality</h2>
+    
+    <ul>
+      <li>ChatGPT generates high-quality, structured content following the specific templates</li>
+      <li>The content is designed to match the format and style of the existing system</li>
+      <li>Custom formatting includes tables, lists, and proper markdown structure</li>
+      <li>Data points are realistic but generated (in a production system, you'd want to verify facts)</li>
+    </ul>
+    
+    <h2>Scheduled Tasks</h2>
+    
+    <p>The system already has scheduled tasks for automatic content generation:</p>
+    
+    <ul>
+      <li>Weekly Offshore Economic Analysis (Wednesdays at 8:00 AM)</li>
+      <li>Weekly Fisheries Industry Report (Fridays at 9:00 AM)</li>
+    </ul>
+    
+    <p>You can manually trigger these tasks from the admin interface or use the email workflow as an alternative content source.</p>
+    
+    <h2>Troubleshooting</h2>
+    
+    <ul>
+      <li><strong>Parsing Error</strong>: Make sure the content follows the exact format specified in the instructions</li>
+      <li><strong>Category Not Detected</strong>: Check that the content includes the proper category header</li>
+      <li><strong>Import Failure</strong>: Verify the file path and make sure the file is accessible</li>
+      <li><strong>Email Sending Failure</strong>: Check your SMTP settings and credentials</li>
+    </ul>
+    
+    <h2>Future Enhancements</h2>
+    
+    <ul>
+      <li>Automatic email fetching and processing</li>
+      <li>Web form for content submission</li>
+      <li>Integration with additional AI models</li>
+      <li>Quality verification and fact-checking workflow</li>
+      <li>Multi-user collaboration on content generation</li>
+    </ul>
+    
+    <hr>
+    
+    <p>This workflow provides a flexible way to incorporate AI-generated content into the Offshore Rapport system while maintaining control over the content quality and publication process.</p>
+    
+    <div class="navigation">
+      <a href="index.html" class="btn">Back to Home</a>
+    </div>
+  </div>
+</body>
+</html>
