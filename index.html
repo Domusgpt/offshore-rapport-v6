@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Offshore Rapport v6 - Automated Maritime Content Platform</title>
+  <title>Offshore Rapport v6 - Maritime Content Platform</title>
   <link rel="stylesheet" href="css/content-styles.css">
   <style>
     :root {
@@ -16,7 +16,7 @@
     }
 
     body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
       line-height: 1.6;
       color: var(--text-color);
       background-color: var(--light-color);
@@ -40,12 +40,12 @@
     .hero-content {
       max-width: 800px;
       margin: 0 auto;
+      padding: 0 20px;
     }
 
     h1 {
       font-size: 2.5rem;
       margin-bottom: 15px;
-      color: white;
     }
 
     header p {
@@ -78,6 +78,7 @@
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
       gap: 30px;
+      padding: 0 20px;
     }
 
     .feature-card {
@@ -107,6 +108,7 @@
     .content-container {
       max-width: 900px;
       margin: 0 auto;
+      padding: 0 20px;
     }
 
     h2 {
@@ -151,6 +153,44 @@
       margin-top: 0;
     }
 
+    .sample-content {
+      padding: 60px 0;
+      background-color: white;
+    }
+
+    .sample-card {
+      max-width: 800px;
+      margin: 0 auto;
+      background-color: var(--light-color);
+      border-radius: 8px;
+      padding: 30px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    .sample-card h3 {
+      color: var(--primary-color);
+      margin-top: 0;
+      font-size: 1.8rem;
+    }
+
+    .sample-meta {
+      display: flex;
+      margin-bottom: 15px;
+      font-size: 0.9rem;
+      color: #666;
+    }
+
+    .sample-category {
+      color: var(--secondary-color);
+      font-weight: bold;
+      margin-right: 15px;
+    }
+
+    .sample-excerpt {
+      margin-bottom: 20px;
+      line-height: 1.7;
+    }
+
     .cta-section {
       background-color: var(--primary-color);
       color: white;
@@ -161,6 +201,15 @@
     .cta-content {
       max-width: 700px;
       margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    .cta-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+      margin-top: 30px;
     }
 
     footer {
@@ -190,6 +239,11 @@
       
       .features-grid {
         grid-template-columns: 1fr;
+      }
+      
+      .cta-buttons {
+        flex-direction: column;
+        align-items: center;
       }
     }
   </style>
@@ -263,23 +317,41 @@
     </div>
   </section>
 
+  <section class="sample-content">
+    <div class="container">
+      <h2>Sample Generated Content</h2>
+      <div class="sample-card">
+        <h3>Global Fisheries Sustainability Outlook</h3>
+        <div class="sample-meta">
+          <span class="sample-category">Fisheries</span>
+          <span class="sample-date">May 15, 2025</span>
+        </div>
+        <div class="sample-excerpt">
+          <p>The global fisheries sector continues to navigate a complex landscape of environmental challenges, market dynamics, and technological innovation in Q2 2025. Sustainable management practices have shown measurable success in several key regions...</p>
+        </div>
+        <a href="sample-content.html" class="btn">View Full Sample</a>
+      </div>
+    </div>
+  </section>
+
   <section class="cta-section">
     <div class="container">
       <div class="cta-content">
         <h2>Get Started Today</h2>
         <p>Explore the Offshore Rapport platform and start generating specialized maritime content for your organization.</p>
-        <a href="EMAIL_CONTENT_WORKFLOW.md" class="btn">View Documentation</a>
+        <div class="cta-buttons">
+          <a href="EMAIL_CONTENT_WORKFLOW.md" class="btn">View Documentation</a>
+          <a href="chatgpt-content-prompt.md" class="btn">Get ChatGPT Instructions</a>
+        </div>
       </div>
     </div>
   </section>
 
   <footer>
     <div class="container">
-      <p>© 2025 Offshore Rapport. Created with Claude Code. <a href="https://github.com/yourusername/offshore-rapport-v6">GitHub Repository</a></p>
+      <p>© 2025 Offshore Rapport. Created with Claude Code.</p>
+      <p><a href="README.md">View README</a>  < /dev/null |  <a href="https://github.com/yourusername/offshore-rapport-v6">GitHub Repository</a></p>
     </div>
   </footer>
-
-  <script src="js/content-loader.js"></script>
 </body>
 </html>
-EOL < /dev/null
