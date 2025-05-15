@@ -1,9 +1,9 @@
-<\!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Offshore Rapport v6 - Maritime Content Platform</title>
+  <title>Offshore Rapport - Maritime Industry Intelligence</title>
   <link rel="stylesheet" href="css/content-styles.css">
   <style>
     :root {
@@ -24,346 +24,483 @@
       padding: 0;
     }
 
-    .container {
+    /* Header */
+    header {
+      background-color: white;
+      border-bottom: 3px solid var(--primary-color);
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .header-content {
       max-width: 1200px;
       margin: 0 auto;
       padding: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
     }
 
-    header {
-      background-color: var(--primary-color);
+    .logo {
+      font-size: 1.8rem;
+      font-weight: bold;
+      color: var(--primary-color);
+      text-decoration: none;
+    }
+
+    .tagline {
+      font-size: 0.9rem;
+      color: var(--secondary-color);
+      margin-left: 15px;
+    }
+
+    .nav-menu {
+      display: flex;
+      gap: 30px;
+    }
+
+    .nav-menu a {
+      color: var(--text-color);
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+
+    .nav-menu a:hover {
+      color: var(--primary-color);
+    }
+
+    /* Hero Section */
+    .hero {
+      background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
       color: white;
-      padding: 40px 0;
+      padding: 60px 20px;
       text-align: center;
     }
 
-    .hero-content {
-      max-width: 800px;
-      margin: 0 auto;
-      padding: 0 20px;
-    }
-
-    h1 {
+    .hero h1 {
       font-size: 2.5rem;
       margin-bottom: 15px;
     }
 
-    header p {
+    .hero p {
       font-size: 1.2rem;
-      margin-bottom: 25px;
-      opacity: 0.9;
+      max-width: 600px;
+      margin: 0 auto;
     }
 
-    .btn {
-      display: inline-block;
-      background-color: var(--accent-color);
-      color: white;
-      padding: 12px 24px;
-      border-radius: 4px;
-      text-decoration: none;
-      font-weight: 600;
-      transition: background-color 0.3s;
-    }
-
-    .btn:hover {
-      background-color: #2ca0c4;
-    }
-
-    .features {
-      padding: 60px 0;
-      background-color: white;
-    }
-
-    .features-grid {
+    /* Main Content */
+    .main-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 40px 20px;
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 30px;
-      padding: 0 20px;
+      grid-template-columns: 3fr 1fr;
+      gap: 40px;
     }
 
-    .feature-card {
-      background-color: var(--light-color);
+    /* Articles */
+    .articles {
+      display: grid;
+      gap: 30px;
+    }
+
+    .article-card {
+      background-color: white;
       border-radius: 8px;
-      padding: 25px;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      overflow: hidden;
       transition: transform 0.3s, box-shadow 0.3s;
     }
 
-    .feature-card:hover {
+    .article-card:hover {
       transform: translateY(-5px);
-      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
     }
 
-    .feature-card h3 {
-      color: var(--primary-color);
-      margin-top: 0;
-      font-size: 1.5rem;
-    }
-
-    .content-section {
-      padding: 60px 0;
-      background-color: var(--light-color);
-    }
-
-    .content-container {
-      max-width: 900px;
-      margin: 0 auto;
-      padding: 0 20px;
-    }
-
-    h2 {
-      color: var(--primary-color);
-      font-size: 2rem;
-      margin-bottom: 30px;
-      text-align: center;
-    }
-
-    .workflow-steps {
-      counter-reset: step;
-    }
-
-    .workflow-step {
-      position: relative;
-      background-color: white;
-      border-radius: 8px;
-      padding: 25px 25px 25px 70px;
-      margin-bottom: 25px;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    }
-
-    .workflow-step::before {
-      counter-increment: step;
-      content: counter(step);
-      position: absolute;
-      left: 25px;
-      top: 25px;
-      background-color: var(--secondary-color);
-      color: white;
-      width: 30px;
-      height: 30px;
-      border-radius: 50%;
+    .article-image {
+      height: 200px;
+      background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
       display: flex;
       align-items: center;
       justify-content: center;
-      font-weight: bold;
+      font-size: 3rem;
+      color: white;
     }
 
-    .workflow-step h3 {
+    .article-content {
+      padding: 25px;
+    }
+
+    .article-category {
+      display: inline-block;
+      background-color: var(--accent-color);
+      color: white;
+      padding: 4px 12px;
+      border-radius: 15px;
+      font-size: 0.85rem;
+      margin-bottom: 10px;
+    }
+
+    .article-title {
+      font-size: 1.5rem;
       color: var(--primary-color);
-      margin-top: 0;
+      margin-bottom: 10px;
+      text-decoration: none;
+      display: block;
     }
 
-    .sample-content {
-      padding: 60px 0;
-      background-color: white;
-    }
-
-    .sample-card {
-      max-width: 800px;
-      margin: 0 auto;
-      background-color: var(--light-color);
-      border-radius: 8px;
-      padding: 30px;
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-    }
-
-    .sample-card h3 {
-      color: var(--primary-color);
-      margin-top: 0;
-      font-size: 1.8rem;
-    }
-
-    .sample-meta {
-      display: flex;
-      margin-bottom: 15px;
-      font-size: 0.9rem;
-      color: #666;
-    }
-
-    .sample-category {
+    .article-title:hover {
       color: var(--secondary-color);
-      font-weight: bold;
-      margin-right: 15px;
     }
 
-    .sample-excerpt {
-      margin-bottom: 20px;
+    .article-meta {
+      display: flex;
+      gap: 15px;
+      color: #666;
+      font-size: 0.9rem;
+      margin-bottom: 15px;
+    }
+
+    .article-excerpt {
+      color: var(--text-color);
       line-height: 1.7;
+      margin-bottom: 15px;
     }
 
-    .cta-section {
+    .read-more {
+      color: var(--primary-color);
+      text-decoration: none;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .read-more:hover {
+      color: var(--secondary-color);
+    }
+
+    /* Sidebar */
+    .sidebar {
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+    }
+
+    .sidebar-section {
+      background-color: white;
+      border-radius: 8px;
+      padding: 25px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    .sidebar-section h3 {
+      color: var(--primary-color);
+      margin-bottom: 15px;
+      font-size: 1.2rem;
+    }
+
+    .category-list {
+      list-style: none;
+      padding: 0;
+    }
+
+    .category-list li {
+      padding: 8px 0;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .category-list li:last-child {
+      border-bottom: none;
+    }
+
+    .category-list a {
+      color: var(--text-color);
+      text-decoration: none;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .category-list a:hover {
+      color: var(--primary-color);
+    }
+
+    .category-count {
+      background-color: var(--light-color);
+      color: var(--secondary-color);
+      padding: 2px 8px;
+      border-radius: 10px;
+      font-size: 0.8rem;
+    }
+
+    /* Newsletter */
+    .newsletter-form {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .newsletter-form input {
+      padding: 10px;
+      border: 1px solid var(--border-color);
+      border-radius: 4px;
+      font-size: 0.95rem;
+    }
+
+    .newsletter-form button {
       background-color: var(--primary-color);
       color: white;
-      padding: 60px 0;
-      text-align: center;
+      padding: 10px;
+      border: none;
+      border-radius: 4px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background-color 0.3s;
     }
 
-    .cta-content {
-      max-width: 700px;
-      margin: 0 auto;
-      padding: 0 20px;
+    .newsletter-form button:hover {
+      background-color: var(--secondary-color);
     }
 
-    .cta-buttons {
-      display: flex;
-      justify-content: center;
-      gap: 20px;
-      flex-wrap: wrap;
-      margin-top: 30px;
-    }
-
+    /* Footer */
     footer {
-      background-color: #0a3a50;
+      background-color: var(--primary-color);
       color: white;
-      padding: 30px 0;
-      text-align: center;
+      padding: 40px 20px 20px;
+      margin-top: 60px;
     }
 
-    footer a {
-      color: var(--accent-color);
+    .footer-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 40px;
+    }
+
+    .footer-section h4 {
+      margin-bottom: 15px;
+    }
+
+    .footer-section ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .footer-section ul li {
+      padding: 5px 0;
+    }
+
+    .footer-section a {
+      color: rgba(255,255,255,0.8);
       text-decoration: none;
     }
 
-    footer a:hover {
-      text-decoration: underline;
+    .footer-section a:hover {
+      color: white;
     }
 
+    .footer-bottom {
+      text-align: center;
+      margin-top: 40px;
+      padding-top: 20px;
+      border-top: 1px solid rgba(255,255,255,0.2);
+      font-size: 0.9rem;
+    }
+
+    /* Responsive */
     @media (max-width: 768px) {
-      .container {
-        padding: 15px;
-      }
-      
-      h1 {
-        font-size: 2rem;
-      }
-      
-      .features-grid {
+      .main-content {
         grid-template-columns: 1fr;
       }
       
-      .cta-buttons {
-        flex-direction: column;
-        align-items: center;
+      .nav-menu {
+        display: none;
+      }
+      
+      .footer-content {
+        grid-template-columns: 1fr;
+      }
+      
+      .hero h1 {
+        font-size: 2rem;
       }
     }
   </style>
 </head>
 <body>
   <header>
-    <div class="container">
-      <div class="hero-content">
-        <h1>Offshore Rapport v6</h1>
-        <p>An automated maritime content platform featuring AI-powered generation with specialized templates for offshore economics and fisheries.</p>
-        <a href="https://github.com/Domusgpt/offshore-rapport-v6" class="btn">View on GitHub</a>
+    <div class="header-content">
+      <div>
+        <a href="/" class="logo">Offshore Rapport</a>
+        <span class="tagline">Maritime Industry Intelligence</span>
       </div>
+      <nav class="nav-menu">
+        <a href="#offshore-economics">Offshore Economics</a>
+        <a href="#fisheries">Fisheries</a>
+        <a href="#about">About</a>
+      </nav>
     </div>
   </header>
 
-  <section class="features">
-    <div class="container">
-      <h2>Key Features</h2>
-      <div class="features-grid">
-        <div class="feature-card">
-          <h3>Specialized Templates</h3>
-          <p>Custom templates for offshore economics and fisheries content with industry-specific formatting and terminology.</p>
-        </div>
-        <div class="feature-card">
-          <h3>Automatic Scheduling</h3>
-          <p>Set-and-forget content generation with configurable weekly and monthly schedules for different content types.</p>
-        </div>
-        <div class="feature-card">
-          <h3>ChatGPT Integration</h3>
-          <p>Generate high-quality specialized content using ChatGPT, then import it directly into the platform.</p>
-        </div>
-        <div class="feature-card">
-          <h3>Email Workflow</h3>
-          <p>Send and receive content via email, enabling seamless integration with your existing workflow.</p>
-        </div>
-        <div class="feature-card">
-          <h3>Content Management</h3>
-          <p>Comprehensive admin interface for publishing, editing, and managing all generated content.</p>
-        </div>
-        <div class="feature-card">
-          <h3>Public Content API</h3>
-          <p>Access published content through a clean API for integration with other platforms.</p>
-        </div>
-      </div>
-    </div>
+  <section class="hero">
+    <h1>Maritime Industry Intelligence</h1>
+    <p>Breaking news, deep analysis, and insights from offshore economics and global fisheries</p>
   </section>
 
-  <section class="content-section">
-    <div class="container">
-      <div class="content-container">
-        <h2>Content Generation Workflow</h2>
-        <div class="workflow-steps">
-          <div class="workflow-step">
-            <h3>Generate Content with ChatGPT</h3>
-            <p>Use the provided system instructions to generate specialized maritime content with proper formatting and industry-specific terminology.</p>
+  <div class="main-content">
+    <main class="articles">
+      <article class="article-card">
+        <div class="article-image">🏭</div>
+        <div class="article-content">
+          <span class="article-category">Offshore Economics</span>
+          <a href="offshore-economics-sample.html" class="article-title">Offshore Economic Activity Report: Q2 2025</a>
+          <div class="article-meta">
+            <span>May 15, 2025</span>
+            <span>10 min read</span>
           </div>
-          <div class="workflow-step">
-            <h3>Import Content</h3>
-            <p>Save the generated content to a file and import it into the system with automatic metadata extraction.</p>
-          </div>
-          <div class="workflow-step">
-            <h3>Review and Edit</h3>
-            <p>Review the imported content through the admin interface, make any necessary edits or improvements.</p>
-          </div>
-          <div class="workflow-step">
-            <h3>Publish and Share</h3>
-            <p>Publish the finalized content to make it available through the public API and website.</p>
-          </div>
+          <p class="article-excerpt">The offshore energy sector demonstrated resilience in Q2 2025 despite ongoing market volatility, with capital expenditures rising 7.3% year-over-year to reach $112.4 billion globally. This increase reflects the continuing balance of traditional offshore oil and gas activity with accelerating investments in offshore renewable energy infrastructure.</p>
+          <a href="offshore-economics-sample.html" class="read-more">Read full article →</a>
         </div>
-      </div>
-    </div>
-  </section>
+      </article>
 
-  <section class="sample-content">
-    <div class="container">
-      <h2>Sample Generated Content</h2>
-      <div class="sample-card" style="margin-bottom: 30px;">
-        <h3>Global Fisheries Sustainability Outlook</h3>
-        <div class="sample-meta">
-          <span class="sample-category">Fisheries</span>
-          <span class="sample-date">May 15, 2025</span>
+      <article class="article-card">
+        <div class="article-image">🐟</div>
+        <div class="article-content">
+          <span class="article-category">Fisheries</span>
+          <a href="sample-content.html" class="article-title">Global Fisheries Sustainability Outlook: Q2 2025</a>
+          <div class="article-meta">
+            <span>May 15, 2025</span>
+            <span>12 min read</span>
+          </div>
+          <p class="article-excerpt">The global fisheries sector continues to navigate a complex landscape of environmental challenges, market dynamics, and technological innovation in Q2 2025. Sustainable management practices have shown measurable success in several key regions, with North Atlantic cod stocks showing a 12% recovery compared to 2023 baselines.</p>
+          <a href="sample-content.html" class="read-more">Read full article →</a>
         </div>
-        <div class="sample-excerpt">
-          <p>The global fisheries sector continues to navigate a complex landscape of environmental challenges, market dynamics, and technological innovation in Q2 2025. Sustainable management practices have shown measurable success in several key regions...</p>
-        </div>
-        <a href="sample-content.html" class="btn">View Full Sample</a>
-      </div>
-      
-      <div class="sample-card">
-        <h3>Offshore Economic Activity Report</h3>
-        <div class="sample-meta">
-          <span class="sample-category">Offshore Economics</span>
-          <span class="sample-date">May 15, 2025</span>
-        </div>
-        <div class="sample-excerpt">
-          <p>The offshore energy sector demonstrated resilience in Q2 2025 despite ongoing market volatility, with capital expenditures rising 7.3% year-over-year to reach $112.4 billion globally. This increase reflects the continuing balance of traditional offshore oil and gas activity...</p>
-        </div>
-        <a href="offshore-economics-sample.html" class="btn">View Full Sample</a>
-      </div>
-    </div>
-  </section>
+      </article>
 
-  <section class="cta-section">
-    <div class="container">
-      <div class="cta-content">
-        <h2>Get Started Today</h2>
-        <p>Explore the Offshore Rapport platform and start generating specialized maritime content for your organization.</p>
-        <div class="cta-buttons">
-          <a href="workflow.html" class="btn">View Documentation</a>
-          <a href="instructions.html" class="btn">Get ChatGPT Instructions</a>
+      <article class="article-card">
+        <div class="article-image">⚡</div>
+        <div class="article-content">
+          <span class="article-category">Offshore Economics</span>
+          <div class="article-title">Floating Wind Technology Achieves Cost Parity in North Sea</div>
+          <div class="article-meta">
+            <span>May 14, 2025</span>
+            <span>8 min read</span>
+          </div>
+          <p class="article-excerpt">Commercial viability milestone reached as floating offshore wind projects in the North Sea report LCOE figures competitive with fixed-bottom installations. Major developers cite technological advances and supply chain maturation as key drivers of the 23% cost reduction achieved over the past 18 months.</p>
+          <a href="#" class="read-more">Read full article →</a>
         </div>
-      </div>
-    </div>
-  </section>
+      </article>
+
+      <article class="article-card">
+        <div class="article-image">🌊</div>
+        <div class="article-content">
+          <span class="article-category">Fisheries</span>
+          <div class="article-title">Pacific Tuna Stocks Show Recovery Signs After Management Reforms</div>
+          <div class="article-meta">
+            <span>May 13, 2025</span>
+            <span>7 min read</span>
+          </div>
+          <p class="article-excerpt">Regional fisheries management organizations report positive indicators for Pacific bluefin tuna populations following three years of stringent catch limits and enhanced monitoring. Stock assessments indicate biomass increases of 18% above 2022 levels, though experts caution that recovery remains fragile.</p>
+          <a href="#" class="read-more">Read full article →</a>
+        </div>
+      </article>
+
+      <article class="article-card">
+        <div class="article-image">🛢️</div>
+        <div class="article-content">
+          <span class="article-category">Offshore Economics</span>
+          <div class="article-title">Gulf of Mexico Sees Surge in Deepwater Development Activity</div>
+          <div class="article-meta">
+            <span>May 12, 2025</span>
+            <span>6 min read</span>
+          </div>
+          <p class="article-excerpt">Seven new project sanctions announced in Q2 2025 mark the highest quarterly activity level in the Gulf of Mexico since 2019. Enhanced seismic imaging technology and improved project economics drive renewed interest in ultra-deepwater plays previously considered marginal.</p>
+          <a href="#" class="read-more">Read full article →</a>
+        </div>
+      </article>
+    </main>
+
+    <aside class="sidebar">
+      <section class="sidebar-section">
+        <h3>Industry Categories</h3>
+        <ul class="category-list">
+          <li><a href="#offshore-economics">Offshore Economics <span class="category-count">24</span></a></li>
+          <li><a href="#fisheries">Fisheries <span class="category-count">19</span></a></li>
+          <li><a href="#technology">Maritime Technology <span class="category-count">15</span></a></li>
+          <li><a href="#sustainability">Sustainability <span class="category-count">12</span></a></li>
+          <li><a href="#regulation">Policy & Regulation <span class="category-count">8</span></a></li>
+        </ul>
+      </section>
+
+      <section class="sidebar-section">
+        <h3>Market Indicators</h3>
+        <div style="padding: 10px 0;">
+          <div style="margin-bottom: 15px;">
+            <strong>Brent Crude</strong>
+            <div style="color: green;">$87.42 ↑ 2.3%</div>
+          </div>
+          <div style="margin-bottom: 15px;">
+            <strong>Baltic Dry Index</strong>
+            <div style="color: red;">1,847 ↓ 1.2%</div>
+          </div>
+          <div style="margin-bottom: 15px;">
+            <strong>Jack-up Day Rate</strong>
+            <div style="color: green;">$135,000 ↑ 4.7%</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="sidebar-section">
+        <h3>Newsletter</h3>
+        <p>Get weekly maritime industry insights delivered to your inbox.</p>
+        <form class="newsletter-form">
+          <input type="email" placeholder="Your email address" required>
+          <button type="submit">Subscribe</button>
+        </form>
+      </section>
+    </aside>
+  </div>
 
   <footer>
-    <div class="container">
+    <div class="footer-content">
+      <div class="footer-section">
+        <h4>About Offshore Rapport</h4>
+        <p>Providing essential maritime industry intelligence for offshore economics and fisheries professionals worldwide.</p>
+      </div>
+      <div class="footer-section">
+        <h4>Content Categories</h4>
+        <ul>
+          <li><a href="#offshore-economics">Offshore Economics</a></li>
+          <li><a href="#fisheries">Fisheries</a></li>
+          <li><a href="#technology">Maritime Technology</a></li>
+          <li><a href="#sustainability">Sustainability</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h4>Resources</h4>
+        <ul>
+          <li><a href="workflow.html">Content Guidelines</a></li>
+          <li><a href="instructions.html">Documentation</a></li>
+          <li><a href="https://github.com/Domusgpt/offshore-rapport-v6">GitHub</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
       <p>© 2025 Offshore Rapport. Created with Claude Code.</p>
-      <p><a href="https://github.com/Domusgpt/offshore-rapport-v6">GitHub Repository</a></p>
     </div>
   </footer>
+
+  <script>
+    // Simple JavaScript for newsletter form
+    document.querySelector('.newsletter-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      alert('Thank you for subscribing! Weekly updates will be sent to your email.');
+      this.reset();
+    });
+  </script>
 </body>
 </html>
