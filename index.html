@@ -1,0 +1,285 @@
+<\!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Offshore Rapport v6 - Automated Maritime Content Platform</title>
+  <link rel="stylesheet" href="css/content-styles.css">
+  <style>
+    :root {
+      --primary-color: #0e4f6e;
+      --secondary-color: #2a8dbc;
+      --accent-color: #3dbadc;
+      --text-color: #333;
+      --light-color: #f5f9fc;
+      --border-color: #d1e3f0;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      line-height: 1.6;
+      color: var(--text-color);
+      background-color: var(--light-color);
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    header {
+      background-color: var(--primary-color);
+      color: white;
+      padding: 40px 0;
+      text-align: center;
+    }
+
+    .hero-content {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 15px;
+      color: white;
+    }
+
+    header p {
+      font-size: 1.2rem;
+      margin-bottom: 25px;
+      opacity: 0.9;
+    }
+
+    .btn {
+      display: inline-block;
+      background-color: var(--accent-color);
+      color: white;
+      padding: 12px 24px;
+      border-radius: 4px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: background-color 0.3s;
+    }
+
+    .btn:hover {
+      background-color: #2ca0c4;
+    }
+
+    .features {
+      padding: 60px 0;
+      background-color: white;
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+    }
+
+    .feature-card {
+      background-color: var(--light-color);
+      border-radius: 8px;
+      padding: 25px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .feature-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    .feature-card h3 {
+      color: var(--primary-color);
+      margin-top: 0;
+      font-size: 1.5rem;
+    }
+
+    .content-section {
+      padding: 60px 0;
+      background-color: var(--light-color);
+    }
+
+    .content-container {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    h2 {
+      color: var(--primary-color);
+      font-size: 2rem;
+      margin-bottom: 30px;
+      text-align: center;
+    }
+
+    .workflow-steps {
+      counter-reset: step;
+    }
+
+    .workflow-step {
+      position: relative;
+      background-color: white;
+      border-radius: 8px;
+      padding: 25px 25px 25px 70px;
+      margin-bottom: 25px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .workflow-step::before {
+      counter-increment: step;
+      content: counter(step);
+      position: absolute;
+      left: 25px;
+      top: 25px;
+      background-color: var(--secondary-color);
+      color: white;
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+    }
+
+    .workflow-step h3 {
+      color: var(--primary-color);
+      margin-top: 0;
+    }
+
+    .cta-section {
+      background-color: var(--primary-color);
+      color: white;
+      padding: 60px 0;
+      text-align: center;
+    }
+
+    .cta-content {
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    footer {
+      background-color: #0a3a50;
+      color: white;
+      padding: 30px 0;
+      text-align: center;
+    }
+
+    footer a {
+      color: var(--accent-color);
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        padding: 15px;
+      }
+      
+      h1 {
+        font-size: 2rem;
+      }
+      
+      .features-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <div class="hero-content">
+        <h1>Offshore Rapport v6</h1>
+        <p>An automated maritime content platform featuring AI-powered generation with specialized templates for offshore economics and fisheries.</p>
+        <a href="https://github.com/yourusername/offshore-rapport-v6" class="btn">View on GitHub</a>
+      </div>
+    </div>
+  </header>
+
+  <section class="features">
+    <div class="container">
+      <h2>Key Features</h2>
+      <div class="features-grid">
+        <div class="feature-card">
+          <h3>Specialized Templates</h3>
+          <p>Custom templates for offshore economics and fisheries content with industry-specific formatting and terminology.</p>
+        </div>
+        <div class="feature-card">
+          <h3>Automatic Scheduling</h3>
+          <p>Set-and-forget content generation with configurable weekly and monthly schedules for different content types.</p>
+        </div>
+        <div class="feature-card">
+          <h3>ChatGPT Integration</h3>
+          <p>Generate high-quality specialized content using ChatGPT, then import it directly into the platform.</p>
+        </div>
+        <div class="feature-card">
+          <h3>Email Workflow</h3>
+          <p>Send and receive content via email, enabling seamless integration with your existing workflow.</p>
+        </div>
+        <div class="feature-card">
+          <h3>Content Management</h3>
+          <p>Comprehensive admin interface for publishing, editing, and managing all generated content.</p>
+        </div>
+        <div class="feature-card">
+          <h3>Public Content API</h3>
+          <p>Access published content through a clean API for integration with other platforms.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="content-section">
+    <div class="container">
+      <div class="content-container">
+        <h2>Content Generation Workflow</h2>
+        <div class="workflow-steps">
+          <div class="workflow-step">
+            <h3>Generate Content with ChatGPT</h3>
+            <p>Use the provided system instructions to generate specialized maritime content with proper formatting and industry-specific terminology.</p>
+          </div>
+          <div class="workflow-step">
+            <h3>Import Content</h3>
+            <p>Save the generated content to a file and import it into the system with automatic metadata extraction.</p>
+          </div>
+          <div class="workflow-step">
+            <h3>Review and Edit</h3>
+            <p>Review the imported content through the admin interface, make any necessary edits or improvements.</p>
+          </div>
+          <div class="workflow-step">
+            <h3>Publish and Share</h3>
+            <p>Publish the finalized content to make it available through the public API and website.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-content">
+        <h2>Get Started Today</h2>
+        <p>Explore the Offshore Rapport platform and start generating specialized maritime content for your organization.</p>
+        <a href="EMAIL_CONTENT_WORKFLOW.md" class="btn">View Documentation</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <p>© 2025 Offshore Rapport. Created with Claude Code. <a href="https://github.com/yourusername/offshore-rapport-v6">GitHub Repository</a></p>
+    </div>
+  </footer>
+
+  <script src="js/content-loader.js"></script>
+</body>
+</html>
+EOL < /dev/null
